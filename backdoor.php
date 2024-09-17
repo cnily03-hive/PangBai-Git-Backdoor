@@ -1,5 +1,7 @@
 <?php
 
+# Functions to handle HTML output
+
 function print_msg($msg) {
     $content = file_get_contents('index.html');
     $content = preg_replace('/\s*<script.*<\/script>/s', '', $content);
@@ -14,11 +16,13 @@ function show_backdoor() {
     echo $content;
 }
 
+# Backdoor
+
 if ($_POST['papa'] !== 'o31uGSgxKmj7') {
     show_backdoor();
 } else if ($_GET['NewStar_CTF.2024'] !== 'Welcome' && preg_match('/^Welcome$/', $_GET['NewStar_CTF.2024'])) {
     print_msg('PangBai loves you!');
-    call_user_func($_GET['func'], $_GET['args']);
+    call_user_func($_POST['func'], $_POST['args']);
 } else {
     print_msg('PangBai hates you!');
 }
