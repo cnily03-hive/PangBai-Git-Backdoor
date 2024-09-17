@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.box .container {
+    width: 85vw;
+    max-width: 600px;
+    cursor: default;
+}
+
+.box .container.event {
+    cursor: pointer;
+}
+
+@font-face {
+    font-family: 'Material-Design-Iconic-Font';
+    src: url('/assets/Material-Design-Iconic-Font.woff2') format('woff2');
+}
+
+.quote {
+    display: flex;
+    align-items: center;
+}
+
+.quote.quote-left {
+    justify-content: flex-start;
+}
+
+.quote.quote-right {
+    justify-content: flex-end;
+}
+
+.quote::before {
+    content: '\f1b2';
+    font-family: 'Material-Design-Iconic-Font';
+    font-size: 100px;
+    color: #ffebee;
+    position: absolute;
+    z-index: 10;
+}
+
+.quote.quote-left::before {
+    transform: rotate(180deg) translate(65%, 0);
+}
+
+.quote.quote-right::before {
+    transform: translate(65%, 0);
+}
+
+blockquote {
+    font-size: 18px;
+    color: #8d6e63;
+}
+
+.container.justify blockquote {
+    text-align: center;
+}
+
+.blockquote-justify {
+    display: inline-block;
+    text-align: left;
+    min-height: 1em;
+}
+
+*::selection {
+    background-color: rgba(61, 170, 194, 0.25);
+}
