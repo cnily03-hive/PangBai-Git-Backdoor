@@ -1,0 +1,11 @@
+version: '3.8'
+name: pangbai-git-backdoor
+
+services:
+  web:
+    build: .
+    image: ctf-pangbai-git-backdoor:latest
+    environment:
+      - ICQ_FLAG=flag{test_real_flag}
+    ports:
+      - '54000:80'
