@@ -54,10 +54,14 @@ ENV FLAG=flag{test_flag}
 COPY --from=prod-deps /build/ /var/www/html/
 COPY --from=prod-deps /another/ /var/www/html/
 
+RUN curl https://gist.githubusercontent.com/Cnily03/4d4a8a1f2ba63328a9543c82b73a677c/raw/dfbc1f5ca355858fd19e28d6078e62f102679cd5/mvval.sh -o /usr/local/bin/mvval.sh && \
+    chmod +x /usr/local/bin/mvval.sh
+
 RUN useradd -m ctf
 RUN chown -R ctf:ctf /var/log/apache2/
 
-USER ctf
+USER root
+ENTRYPOINT [ "/usr/local/bin/mvval.sh", "-t=env:env", "-n=ICQ_FLAG:FLAG", "--", "sh", "-c" ]
 CMD [ "apache2-foreground" ]
 
 EXPOSE 80
