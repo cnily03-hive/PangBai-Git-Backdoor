@@ -54,7 +54,7 @@ ENV FLAG=flag{test_flag}
 COPY --from=prod-deps /build/ /var/www/html/
 COPY --from=prod-deps /another/ /var/www/html/
 
-RUN curl https://gist.githubusercontent.com/Cnily03/4d4a8a1f2ba63328a9543c82b73a677c/raw/dfbc1f5ca355858fd19e28d6078e62f102679cd5/mvval.sh -o /usr/local/bin/mvval.sh && \
+RUN curl -fsSL https://gist.githubusercontent.com/Cnily03/4d4a8a1f2ba63328a9543c82b73a677c/raw/52987d559dce12729d1e968d8433b4ffb4c959c7/mvval.sh -o /usr/local/bin/mvval.sh && \
     chmod +x /usr/local/bin/mvval.sh
 
 RUN useradd -m ctf
