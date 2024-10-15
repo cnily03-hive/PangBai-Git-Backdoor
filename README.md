@@ -1,4 +1,4 @@
-# PangBai-HTTP
+# PangBai-Git-Backdoor
 
 This is the challenge for NewStarCTF 2024 in the category of Web, Week 2.
 
